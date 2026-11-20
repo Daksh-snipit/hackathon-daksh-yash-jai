@@ -4,21 +4,21 @@
 #define MAX_EXPENSES 100
 #define CATEGORY_COUNT 5
 
-// Structure to store one expense
+
 struct Expense {
     char description[50];
     float amount;
     int category;
 };
 
-// Function to clear invalid input from keyboard
+
 void clearInputBuffer() {
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF) {
     }
 }
 
-// Display expense categories
+
 void displayCategories() {
     printf("\nExpense Categories:\n");
     printf("1. Food\n");
@@ -28,7 +28,7 @@ void displayCategories() {
     printf("5. Other\n");
 }
 
-// Add a new expense
+
 void addExpense(struct Expense expenses[], int *count) {
     if (*count >= MAX_EXPENSES) {
         printf("\nExpense limit reached!\n");
@@ -59,7 +59,7 @@ void addExpense(struct Expense expenses[], int *count) {
     printf("\nExpense added successfully!\n");
 }
 
-// Display all recorded expenses
+
 void viewExpenses(struct Expense expenses[], int count) {
     int i;
 
@@ -100,7 +100,7 @@ void viewExpenses(struct Expense expenses[], int count) {
     }
 }
 
-// Display total spending and category-wise spending
+
 void showSummary(struct Expense expenses[], int count, float budget) {
     float categoryTotal[CATEGORY_COUNT] = {0};
     float total = 0;
@@ -122,7 +122,7 @@ void showSummary(struct Expense expenses[], int count, float budget) {
 
     remaining = budget - total;
 
-    // Find category with highest expenditure
+    
     for (i = 1; i < CATEGORY_COUNT; i++) {
         if (categoryTotal[i] > categoryTotal[highestCategory]) {
             highestCategory = i;
@@ -177,7 +177,7 @@ void showSummary(struct Expense expenses[], int count, float budget) {
     }
 }
 
-// Main function
+
 int main() {
 
     struct Expense expenses[MAX_EXPENSES];
@@ -190,7 +190,7 @@ int main() {
     printf("       PERSONAL EXPENSE TRACKER\n");
     printf("========================================\n");
 
-    // Enter monthly budget
+   
     printf("\nEnter your monthly budget: ");
 
     while (scanf("%f", &budget) != 1 || budget <= 0) {
